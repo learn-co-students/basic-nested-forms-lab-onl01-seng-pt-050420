@@ -7,7 +7,5 @@ class Recipe < ActiveRecord::Base
     if self.ingredient.name != nil && self.ingredient.quantity != nil
     self.ingredient.update(ingredient)
     end
-
-    
   end
 end
