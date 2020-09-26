@@ -1,17 +1,20 @@
 <%= form_for @recipe do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %><br>
+  <%= f.label "Recipe title:" %>
+  <%= f.text_field :title %><br/>
 
-  <%= f.fields_for :ingredients do |i| %>
-    <%= i.label :ingredient_0_name %>
-    <%= i.text_field :ingredient_0_name %><br>
-    <%= i.label :ingredient_0_quantity %>
-    <%= i.text_field :ingredient_0_quantity %><br>
- 
-    <%= i.label :ingredient_1_name %>
-    <%= i.text_field :ingredient_1_name %><br>
-    <%= i.label :ingredient_1_quantity %>
-    <%= i.text_field :ingredient_1_quantity %><br>
+  <%= f.fields_for :ingredients do |inner_form| %>
+    <%= inner_form.label :recipe_ingredients_attritbutes_0_name %>
+    <%= inner_form.text_field :recipe_ingredients_attritbutes_0_name %><br/>
+
+    <%= inner_form.label :recipe_ingredients_attritbutes_0_quantity %>
+    <%= inner_form.text_field :recipe_ingredients_attritbutes_0_quantity %><br/>
+
+    <%= inner_form.label :recipe_ingredients_attritbutes_1_name %>
+    <%= inner_form.text_field :recipe_ingredients_attritbutes_1_name %><br/>
+
+    <%= inner_form.label :recipe_ingredients_attritbutes_1_quantity %>
+    <%= inner_form.text_field :recipe_ingredients_attritbutes_1_quantity %><br/>
   <% end %>
+
   <%= f.submit %>
 <% end %>

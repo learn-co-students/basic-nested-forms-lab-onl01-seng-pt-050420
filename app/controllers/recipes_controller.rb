@@ -9,8 +9,8 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
-    @recipe.ingredients.build()
-    @recipe.ingredients.build()
+    @recipe.ingredients.build(name: "First Ingredient")
+    @recipe.ingredients.build(name: "Second Ingredient")
   end
 
   def create
@@ -18,13 +18,11 @@ class RecipesController < ApplicationController
     redirect_to recipes_path
   end
 
-  private
-
   def recipe_params
     params.require(:recipe).permit(
-      ingredients_attributes: [
-        :ingredient_0,
-        :ingredient_1
+      :title,
+      ingredients_attributes: [ 
+        :name, :quantity
       ]
     )
   end
